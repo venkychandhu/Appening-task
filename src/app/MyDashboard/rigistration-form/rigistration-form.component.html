@@ -1,0 +1,66 @@
+<div class="col-md-6 card offset-md-3 mt-5" id="signupForm">
+    <div class="card-body">
+        <form [formGroup]="signup">
+
+            <h1 class="text-center text-primary">Add New User</h1>
+            <div class="form-group mb-1">
+                <label for="name">FirstName:</label>
+                <input type="text" class="form-control" value="" name="firstname" id="name" formControlName="firstname">
+            </div>
+            <div *ngIf="signup.controls['firstname'].invalid && signup.controls['firstname'].touched" class="alert alert-danger  p-2">
+                <div *ngIf="signup.controls['firstname'].errors.required">
+                    first name is required
+                </div>
+                <div *ngIf="signup.controls['firstname'].errors.pattern">
+                    invalid first name
+                </div>
+            </div>
+            <div class="form-group mb-1 ">
+                <label for="name">LastName:</label>
+                <input type="text" class="form-control" value="" name="lastname" id="name" formControlName="lastname">
+            </div>
+            <div *ngIf="signup.controls['lastname'].invalid && signup.controls['lastname'].touched" class="alert alert-danger p-2">
+                <div *ngIf="signup.controls['lastname'].errors.required">
+                    last name is required
+                </div>
+                <div *ngIf="signup.controls['lastname'].errors.pattern">
+                    invalid last name
+                </div>
+            </div>
+            <div class="form-group mb-1 ">
+                <label for="email">Email:</label>
+                <input type="text" class="form-control" id="email" name="email" formControlName="email">
+            </div>
+            <div *ngIf="signup.controls['email'].invalid && signup.controls['email'].touched" class="alert alert-danger p-2">
+                <div *ngIf="signup.controls['email'].errors.required">
+                    Email is required
+                </div>
+                <div *ngIf="signup.controls['email'].errors.pattern">
+                    invalid email
+                </div>
+            </div>
+            <div class="form-group mb-1 ">
+                <label for="phonenumber">Phone Number:</label>
+                <input type="text" class="form-control" id="number" name="phonenumber" formControlName="phonenumber">
+            </div>
+            <div *ngIf="signup.controls['phonenumber'].invalid && signup.controls['phonenumber'].touched" class="alert alert-danger p-2">
+                <div *ngIf="signup.controls['phonenumber'].errors.required">
+                    phonenumber is required
+                </div>
+                <div *ngIf="signup.controls['phonenumber'].errors.pattern">
+                    invalid phone number
+                </div>
+            </div>
+            <div class="form-group mb-1 ">
+                <label for="age">Age:</label>
+                <input type="text" class="form-control" id="age" name="age" formControlName="age">
+
+            </div>
+            <div class="alert alert-danger p-2 " *ngIf="signup.controls['age'].invalid && signup.controls['age'].touched">
+                <div *ngIf="signup.controls['age'].errors.required"> age is required</div>
+                <div *ngIf="signup.controls['age'].errors.pattern"> invalid age</div>
+            </div>
+            <button class="btn btn-block btn-success mt-3" (click)="addnewuser()">Add User</button>
+        </form>
+    </div>
+</div>

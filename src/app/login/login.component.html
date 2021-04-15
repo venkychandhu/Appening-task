@@ -1,0 +1,38 @@
+<div class="container mt-5">
+    <div class="row m-0">
+        <div class="col-md-6 offset-3">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="text-center text-primary text-capitalize">LogIn Form</h1>
+                    <form [formGroup]="myform" (ngSubmit)="onsubmit()" novalidate>
+                        <div class="form-group">
+                            Email <input type="text" formControlName="email" name="email" id="Name" class="form-control" />
+                        </div>
+                        <div *ngIf="myform.controls['email'].invalid && myform.controls['email'].touched" class="alert alert-danger">
+                            <div *ngIf="myform.controls['email'].errors.required">
+                                Email is required
+                            </div>
+                            <div *ngIf="myform.controls['email'].errors.pattern">
+                                Email should be abc@gmail.com
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            Password <input type="password" formControlName="password" name="password" class="form-control">
+                        </div>
+                        <div *ngIf="myform.controls['password'].invalid && myform.controls['password'].touched" class="alert alert-danger">
+                            <div *ngIf="myform.controls['password'].errors.required">
+                                password is required
+                            </div>
+                            <div *ngIf="myform.controls['password'].errors.pattern">
+                                invalid password
+                            </div>
+                        </div>
+                        <div class="alert alert-danger invalid-details" *ngIf="isvalid" role="alert">
+                            Incorrect username or password
+                        </div>
+                        <button class="btn btn-block btn-danger" [disabled]="!myform.valid">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
